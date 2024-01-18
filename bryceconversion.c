@@ -7,8 +7,10 @@ void printMenu() {
     printf("2. Grams to Ounces\n");
     printf("3. Kilometers to Miles\n");
     printf("4. Meters to Inches\n");
-    printf("5. Exit\n");
-    printf("Enter choice (1-5): ");
+    printf("5. Celsius to Fahrenheit\n");
+    printf("6. Liters to Gallons\n");
+    printf("7. Exit\n");
+    printf("Enter choice (1-7): ");
 }
 
 double kilogramsToPounds(double kg) {
@@ -27,6 +29,14 @@ double metersToInches(double m) {
     return m * 39.3701;
 }
 
+double celsiusToFahrenheit(double c) {
+    return (c * 9.0 / 5.0) + 32;
+}
+
+double litersToGallons(double l) {
+    return l * 0.264172;
+}
+
 int main() {
     int choice;
     double value, result;
@@ -35,14 +45,14 @@ int main() {
         printMenu();
         scanf("%d", &choice);
 
-        if(choice < 1 || choice > 5) {
-            printf("Invalid choice, please enter a number between 1 and 5.\n");
+        if(choice < 1 || choice > 7) {
+            printf("Invalid choice, please enter a number between 1 and 7.\n");
             while (getchar() != '\n'); // Clear the input buffer
             continue;
         }
 
-        if(choice == 5) {
-            break; // Exit the loop if choice is 5
+        if(choice == 7) {
+            break; // Exit the loop if choice is 7
         }
 
         printf("Enter value to convert: ");
@@ -65,12 +75,20 @@ int main() {
                 result = metersToInches(value);
                 printf("%.2lf m is %.2lf inches.\n", value, result);
                 break;
+            case 5:
+                result = celsiusToFahrenheit(value);
+                printf("%.2lf °C is %.2lf °F.\n", value, result);
+                break;
+            case 6:
+                result = litersToGallons(value);
+                printf("%.2lf liters is %.2lf gallons.\n", value, result);
+                break;
             default:
                 printf("Something went wrong, try again.\n");
                 break;
         }
     } while (1);
 
-    printf("Thank you for using Bryce's Metric Converter!\n");
+    printf("Thank you for using My Metric Converter!\n");
     return 0;
 }
