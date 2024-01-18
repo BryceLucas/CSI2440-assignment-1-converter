@@ -6,6 +6,8 @@ This C program provides a simple command-line interface for converting between d
 - Grams to Ounces
 - Kilometers to Miles
 - Meters to Inches
+- Liters to Gallons
+- Celcius to farenheit
 
  Features
 - Simple and easy-to-navigate text-based menu.
